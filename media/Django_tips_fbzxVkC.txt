@@ -1,0 +1,51 @@
+Maually rendering forms
+1. add name to the fields: This is effective however the bound state
+of the form is lost (field errors, required variables)
+A quick fix to this problem is to access the field errors individually
+using:
+
+shortcut: {{ form.name.error }}
+
+Non-field errors are errors belonging to the whole foem. They can be 
+accessed by:
+
+shortcut: {{ form.non_field_errors }}
+
+To the problem with bound state ie prepopulating the fields after
+submitting:
+
+shortcut: {{ form.name }}
+
+The label fields can also be generated using:
+
+shortcut: {{ form.field_name.label_tag}}
+
+If all fields follw the same format, you can loop over the fields to
+generate the form.
+
+shortcut: {% for field in form %}{{ firld.label_tag}} {{ field.errors}} {{ field }} {% endfor %}
+
+Another trick is that, you can access all attributes of the field
+manually by using:
+{{ form.name.id }}
+{{ form.name.name }}
+{{ form.name.value }}
+
+
+ModelForms and Forms
+ModelForms come with validation and saves data directly to the
+database.
+
+Forms work but you have to wewrite your own validation for the
+forms
+
+***Check Inline formset
+***MultiModelForm
+
+Forms can be created without a model and the parameters used
+for another logic and showed in another view.
+
+
+
+
+
